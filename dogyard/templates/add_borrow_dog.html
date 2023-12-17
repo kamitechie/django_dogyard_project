@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add a Borrowed Dog</title>
+</head>
+<body>
+    <h1>Add a Borrowed Dog</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Dog</button>
+    </form>
+    <a href="{% url 'borrowed_dogs' %}">Back to Borrowed Dogs</a>
+</body>
+</html>

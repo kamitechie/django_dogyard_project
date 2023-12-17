@@ -1,0 +1,29 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adoption</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dogs_style.css' %}">
+</head>
+<body>
+    <h1>Adoption List</h1>
+    <a href="{% url 'home' %}">
+        <button class="home-button">Home</button>
+    </a>
+    <a href="{% url 'add_adopted_dog' %}" class="add-btn">+</a>
+    <div class="dog-list">
+        {% for adopted_dog in adopted_dogs %}
+            <div class="dog">
+                <div class="pic-display">
+                    <img src="data:image/jpeg;base64,{{ adopted_dog.dog.get_photo_base64 }}" alt="{{ adopted_dog.dog.dogs_name }}">
+                    <h2> {{ adopted_dog.dog.dogs_name }}</h2>
+                </div>
+                <div class="additional-info">
+                    <p> Adopted on: {{ adopted_dog.adoption_date }}</p>
+                    <p> Owner: {{ adopted_dog.owners.first_name }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

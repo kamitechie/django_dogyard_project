@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add a Hospital Dog</title>
+</head>
+<body>
+    <h1>Add a Hospital Dog</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Dog</button>
+    </form>
+    <a href="{% url 'hospital_dogs' %}">Back to Hospital Dogs</a>
+</body>
+</html>

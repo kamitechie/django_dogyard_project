@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.home-button {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: 100px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+.add-btn {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: 100px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    text-decoration: none;
+}
+
+.dog-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dog {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.pools {
+    background-color: #000; /* Background color of the navbar */
+    overflow: hidden; /* Prevents content inside navbar from overflowing */
+}
+
+.pools a {
+    float: left; /* Float the buttons to the left */
+    display: inline-block;
+    width: 15%;
+    color: white; /* Text color */
+    background-color: #000;
+    text-align: center; /* Center-align text horizontally */
+    padding: 10px 10px; /* Padding for spacing around text */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.pools a:hover {
+    background-color: #ddd; /* Background color when hovering */
+    color: black; /* Text color when hovering */
+}
+
+/* Ensure that the navbar spans the entire width of the page */
+.pools::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.dog {
+    position: relative;
+    width: 200px; /* Adjust the width as needed */
+    display: inline-block; /* Allow items to appear next to each other */
+    margin-right: 20px; /* Add spacing between items */
+}
+
+.dog .pic-display {
+    position: relative;
+}
+
+.dog .additional-info, .mother {
+    position: absolute;
+    top: 100%; /* Initially positioned below the thumbnail */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1;
+    transition: opacity 0.3s ease; /* Add a transition for smooth fading */
+    opacity: 0; /* Initially hidden */
+    overflow: hidden; /* Hide overflow to prevent overlapping */
+}
+
+.dog:hover .additional-info, .mother:hover {
+    top: auto; /* Move to auto position when hovering */
+    bottom: 0; /* Position at the bottom of the container */
+    opacity: 1; /* Make it visible on hover */
+}
+
+
+
+

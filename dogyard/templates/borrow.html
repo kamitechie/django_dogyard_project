@@ -1,0 +1,31 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrowing</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dogs_style.css' %}">
+</head>
+<body>
+    <h1>Borrowed Dogs</h1>
+    <a href="{% url 'home' %}">
+        <button class="home-button">Home</button>
+    </a>
+    <a href="{% url 'add_borrowed_dog' %}" class="add-btn">+</a>
+    <div class="dog-list">
+        {% for borrowed_dog in borrowed_dogs %}
+            <div class="dog">
+                <div class="pic-display">
+                    <img src="data:image/jpeg;base64,{{ borrowed_dog.dog.get_photo_base64 }}" alt="{{ borrowed_dog.dog.name }}">
+                    <h2> {{ borrowed_dog.dog.dogs_name }}</h2>
+                </div>
+                <div class="additional-info">
+                    <p> Borrowed on: {{ borrowed_dog.date_of_taking }}</p>
+                    <p> Should be back on: {{ borrowed_dog.date_of_giving_back }}</p>
+                    <p> Person: {{ borrowed_dog.borrowers.first_name }}</p>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

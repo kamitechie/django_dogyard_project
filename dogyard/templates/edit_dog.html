@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Dog</title>
+</head>
+<body>
+    <h1>Edit Dog</h1>
+    <form method="post" enctype="multipart/form-data">
+        <!-- Hidden input field to store the source page -->
+        <input type="hidden" name="source_page" value="{{ source_page }}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Dog</button>
+    </form>
+
+</body>
+</html>

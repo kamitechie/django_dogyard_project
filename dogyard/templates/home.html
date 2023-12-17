@@ -1,0 +1,57 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'home_style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'dogs_list' %}">
+            <div class="box dogyard">
+            <h2>Dogyard</h2>
+            </div>
+        </a>
+        <a href="{% url 'puppies' %}">
+            <div class="box puppies">
+                <h2>Puppies</h2>
+            </div>
+        </a>
+        <a href="{% url 'hospital_dogs' %}">
+            <div class="box hospital">
+                <h2>Hospital</h2>
+            </div>
+        </a>
+        <a href="{% url 'schedule' %}">
+        <div class="box schedules">
+            <h2>Activity sheets</h2>
+        </div>
+        </a>
+        <a href="{% url 'borrowed_dogs' %}">
+            <div class="box borrow">
+                <h2>Borrow a dog</h2>
+            </div>
+        </a>
+        <a href="{% url 'adopted_dogs' %}">
+            <div class="box adoption">
+                <h2>Adoption</h2>
+            </div>
+        </a>
+        <a href="{% url 'team' %}">
+        <div class="box team">
+            <h2>Team maker</h2>
+        </div>
+        </a>
+        <a href="{% url 'family' %}">
+        <div class="box family">
+            <h2>Family tree</h2>
+        </div>
+        </a>
+        <a href="{% url 'info' %}">
+        <div class="box info">
+            <h2>Information</h2>
+        </div>
+        </a>
+    </div>
+</body>
+</html>

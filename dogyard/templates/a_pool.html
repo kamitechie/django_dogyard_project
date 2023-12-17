@@ -1,0 +1,54 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A Pool</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dogs_style.css' %}">
+</head>
+<body>
+    <h1>A Pool</h1>
+    <a href="{% url 'home' %}">
+          <button class="home-button">Home</button>
+    </a>
+    <a href="{% url 'add_new_dog' %}" class="add-btn">+</a>
+    <div class="pools">
+        <a href="{% url 'a_pool' %}">
+            A pool
+        </a>
+        <a href="{% url 'b_pool' %}">
+            B pool
+        </a>
+        <a href="{% url 'c_pool' %}">
+            C pool
+        </a>
+        <a href="{% url 'd_pool' %}">
+            D pool
+        </a>
+        <a href="{% url 'e_pool' %}">
+            E pool
+        </a>
+        <a href="{% url 'racing_pool' %}">
+            Racing pool
+        </a>
+    </div>
+    <div class="dog-list">
+        {% for dog, age in dogs_and_ages %}
+            <div class="dog">
+                <div class="pic-display">
+                    <img src="data:image/jpeg;base64,{{ dog.get_photo_base64 }}" alt="{{ dog.dogs_name }}">
+                    <h2>{{ dog.dogs_name }}</h2>
+                </div>
+                <div class="additional-info">
+                    <p>Age: {{ age }} yo</p>
+                    <p>{{ dog.birth_date }}</p>
+                    <p>Pool: {{ dog.pool }}</p>
+                    <p>Gender: {{ dog.gender }}</p>
+                    <p>Mother: {{ dog.mother.dogs_name }}</p>
+                    <p>Father: {{ dog.father.dogs_name }}</p>
+                    <a href="{% url 'edit_dog' dog.dog_id %}">Edit</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

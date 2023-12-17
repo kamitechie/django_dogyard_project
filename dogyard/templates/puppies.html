@@ -1,0 +1,36 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Puppies Data</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dogs_style.css' %}">
+</head>
+<body>
+    <h1>Puppies</h1>
+    <a href="{% url 'home' %}">
+        <button class="home-button">Home</button>
+    </a>
+    <a href="{% url 'add_new_puppy' %}" class="add-btn">+</a>
+    <div class="dog-list">
+        {% for puppy in puppy_dogs %}
+            <div class="dog">
+                <div class="pic-display">
+                    {% if puppy.get_photo_base64 %}
+                        <img src="data:image/jpeg;base64,{{ puppy.get_photo_base64 }}" alt="{{ puppy.dogs_name }}">
+                    {% else %}
+                        <img src="{% static 'images/placeholder.jpg' %}" alt="Placeholder">
+                    {% endif %}
+                    <h2> {{ puppy.dogs_name }}</h2>
+                </div>
+                <div class="additional-info">
+                    <p>Birth date: {{ puppy.birth_date }}</p>
+                    <p>Gender: {{ puppy.gender }}</p>
+                    <p>Age: {{ puppy.age_in_months }} mo</p>
+                    <a href="{% url 'edit_dog' puppy.dog_id %}?source_page=puppies">Edit</a>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
